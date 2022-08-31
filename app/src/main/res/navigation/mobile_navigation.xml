@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.saturnalia_clients.ui.fragments.profile.ProfileFragment"
+        android:label="@string/string_profilemenu"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_carta"
+        android:name="com.example.saturnalia_clients.ui.fragments.carta.CartaFragment"
+        android:label="@string/string_cartamenu"
+        tools:layout="@layout/fragment_carta" />
+
+    <fragment
+        android:id="@+id/navigation_review"
+        android:name="com.example.saturnalia_clients.ui.fragments.review.ReviewFragment"
+        android:label="@string/string_reviewmenu"
+        tools:layout="@layout/fragment_review" />
+
+    <fragment
+        android:id="@+id/navigation_config"
+        android:name="com.example.saturnalia_clients.ui.fragments.config.ConfigFragment"
+        android:label="@string/string_configmenu"
+        tools:layout="@layout/fragment_config" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.saturnalia_clients.ui.fragments.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.saturnalia_clients.ui.fragments.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+</navigation>
