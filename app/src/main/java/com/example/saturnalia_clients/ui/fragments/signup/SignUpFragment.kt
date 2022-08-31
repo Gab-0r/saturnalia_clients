@@ -6,27 +6,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.example.saturnalia_clients.R
+import com.example.saturnalia_clients.databinding.FragmentLoginBinding
+import com.example.saturnalia_clients.databinding.FragmentSignUpBinding
+import com.example.saturnalia_clients.ui.fragments.login.LoginViewModel
 
 class SignUpFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SignUpFragment()
-    }
-
-    private lateinit var viewModel: SignUpViewModel
+    private lateinit var signUpBinding: FragmentSignUpBinding
+    private lateinit var signupviewModel: SignUpViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        signUpBinding = FragmentSignUpBinding.inflate(inflater, container, false)
+        signupviewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
+
+        with(signUpBinding){
+            registerButton.setOnClickListener {
+            }
+        }
+
+        return signUpBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar!!.hide()
     }
 
 }
