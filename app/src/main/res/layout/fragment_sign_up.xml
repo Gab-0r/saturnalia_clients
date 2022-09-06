@@ -52,7 +52,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
-            android:id="@+id/email_TextEmailAddress2"
+            android:id="@+id/email_TextEmailAddress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -72,7 +72,7 @@
             tools:ignore="TextContrastCheck" />
 
         <EditText
-            android:id="@+id/password_TextTextPassword"
+            android:id="@+id/password_Text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -88,11 +88,11 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email_TextEmailAddress2"
+            app:layout_constraintTop_toBottomOf="@+id/email_TextEmailAddress"
             tools:ignore="TextContrastCheck" />
 
         <EditText
-            android:id="@+id/confirm_password_TextPassword2"
+            android:id="@+id/confirm_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -108,7 +108,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_TextTextPassword"
+            app:layout_constraintTop_toBottomOf="@+id/password_Text"
             tools:ignore="TextContrastCheck" />
 
         <Button
@@ -125,6 +125,6 @@
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/confirm_password_TextPassword2" />
+            app:layout_constraintTop_toBottomOf="@+id/confirm_password" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

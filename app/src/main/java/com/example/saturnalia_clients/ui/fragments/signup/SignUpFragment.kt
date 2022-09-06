@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.saturnalia_clients.R
@@ -16,21 +17,42 @@ import com.example.saturnalia_clients.ui.fragments.login.LoginViewModel
 class SignUpFragment : Fragment() {
 
     private lateinit var signUpBinding: FragmentSignUpBinding
-    private lateinit var signupviewModel: SignUpViewModel
+    private lateinit var signUpviewModel: SignUpViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         signUpBinding = FragmentSignUpBinding.inflate(inflater, container, false)
-        signupviewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
+        signUpviewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
+
+
+        signUpviewModel.erroMsg.observe(viewLifecycleOwner){
+            showErrorMsg(it)
+        }
+
+        signUpviewModel.registerSuccess.observe(viewLifecycleOwner){
+            goToLogin()
+        }
 
         with(signUpBinding){
             registerButton.setOnClickListener {
+                signUpviewModel.checkFields(nameTextInputLayout.text.toString(), emailTextEmailAddress.text.toString(),
+                    passwordText.text.toString(),
+                    confirmPassword.text.toString()
+                )
             }
         }
 
         return signUpBinding.root
+    }
+
+    private fun showErrorMsg(msg_: String?) {
+        Toast.makeText(requireActivity(), msg_, Toast.LENGTH_LONG).show()
+    }
+
+    fun goToLogin(){
+        findNavController().navigate(SignUpFragmentDirections.actionNavigationSignUpToNavigationLogin())
     }
 
     override fun onResume() {
