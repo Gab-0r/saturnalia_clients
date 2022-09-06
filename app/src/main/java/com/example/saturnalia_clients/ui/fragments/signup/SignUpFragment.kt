@@ -42,6 +42,9 @@ class SignUpFragment : Fragment() {
                     confirmPassword.text.toString()
                 )
             }
+            buttonLogin.setOnClickListener {
+                goToLogin()
+            }
         }
 
         return signUpBinding.root

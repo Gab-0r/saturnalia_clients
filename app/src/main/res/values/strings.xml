@@ -28,4 +28,5 @@
     <string name="createproduct_title">Añadir un producto</string>
     <string name="string_createproduct_button">Crear producto</string>
     <string name="string_add">Añadir</string>
+    <string name="string_loginButton">Iniciar sesión</string>
 </resources>
