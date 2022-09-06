@@ -23,8 +23,11 @@ class LoginFragment : Fragment() {
         loginviewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
         with(loginBinding){
-            loginBinding.signUpButton.setOnClickListener {
+            signUpButton.setOnClickListener {
                 findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationSignUp())
+            }
+            loginButton.setOnClickListener {
+                findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationProfile())
             }
         }
 
