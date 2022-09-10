@@ -22,6 +22,15 @@ class CreateProductFragment : Fragment() {
         createProductBinding = FragmentCreateProductBinding.inflate(inflater, container, false)
         createProductViewModel = ViewModelProvider(this)[CreateProductViewModel::class.java]
 
+        with(createProductBinding){
+            buttonAddProduct.setOnClickListener {
+                createProductViewModel.checkFields(editTextCreateProductName.text.toString(),
+                    editTextProductType.text.toString(), editTextProductPrice.text.toString().toInt(),
+                    editTextDescProduct.text.toString()
+                )
+            }
+        }
+
         return createProductBinding.root
     }
 

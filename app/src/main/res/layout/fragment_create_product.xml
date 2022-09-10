@@ -63,7 +63,8 @@
             android:id="@+id/editText_productType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/string_product_type" />
+            android:hint="@string/string_product_type"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
