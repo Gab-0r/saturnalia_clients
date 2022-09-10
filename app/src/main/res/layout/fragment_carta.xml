@@ -7,14 +7,32 @@
     tools:context=".ui.fragments.carta.CartaFragment">
 
     <TextView
-        android:layout_width="196dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="268dp"
+        android:layout_width="83dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="144dp"
         android:text="Carta"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_ToCreateProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="309dp"
+        android:layout_marginTop="597dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="78dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_"
+        app:backgroundTint="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

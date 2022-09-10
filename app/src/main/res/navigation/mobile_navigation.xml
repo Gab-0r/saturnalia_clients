@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_login">
+    app:startDestination="@id/navigation_carta">
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -15,7 +15,11 @@
         android:id="@+id/navigation_carta"
         android:name="com.example.saturnalia_clients.ui.fragments.carta.CartaFragment"
         android:label="@string/string_cartamenu"
-        tools:layout="@layout/fragment_carta" />
+        tools:layout="@layout/fragment_carta" >
+        <action
+            android:id="@+id/action_navigation_carta_to_navigation_createProduct"
+            app:destination="@id/navigation_createProduct" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_review"
@@ -49,4 +53,9 @@
             android:id="@+id/action_navigation_signUp_to_navigation_login"
             app:destination="@id/navigation_login" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_createProduct"
+        android:name="com.example.saturnalia_clients.ui.fragments.createproducts.CreateProductFragment"
+        android:label="fragment_create_product"
+        tools:layout="@layout/fragment_create_product" />
 </navigation>
