@@ -18,7 +18,7 @@ class ProductRepository {
         return try {
             val path = auth.uid?.let { db.collection("discos").document(it).collection("Products")}
             val documentProduct = path?.document()
-            product.id = path?.document()?.id
+            product.id = documentProduct?.id
             documentProduct?.id?.let { path.document(it).set(product).await() }
             ResourceRemote.success(data = product.id)
         } catch (e: FirebaseFirestoreException) {

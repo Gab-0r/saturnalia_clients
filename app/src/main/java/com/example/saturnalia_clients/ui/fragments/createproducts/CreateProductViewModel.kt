@@ -30,10 +30,11 @@ class CreateProductViewModel : ViewModel() {
                 result.let { resourceRemote ->
                     when(resourceRemote){
                         is ResourceRemote.success ->{
-                            
+                            _createProductSuccess.postValue(result.data)
+                            _msg.postValue("Producto creado exitosamente")
                         }
                         is ResourceRemote.error -> {
-
+                            //TODO Mensajes de error con su traduccion
                         }
                         else->{}
                     }

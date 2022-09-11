@@ -57,5 +57,9 @@
         android:id="@+id/navigation_createProduct"
         android:name="com.example.saturnalia_clients.ui.fragments.createproducts.CreateProductFragment"
         android:label="fragment_create_product"
-        tools:layout="@layout/fragment_create_product" />
+        tools:layout="@layout/fragment_create_product" >
+        <action
+            android:id="@+id/action_navigation_createProduct_to_navigation_carta"
+            app:destination="@id/navigation_carta" />
+    </fragment>
 </navigation>
