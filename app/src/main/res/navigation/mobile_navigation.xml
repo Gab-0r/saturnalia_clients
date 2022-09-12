@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_navigation_carta_to_navigation_createProduct"
             app:destination="@id/navigation_createProduct" />
+        <action
+            android:id="@+id/action_navigation_carta_to_navigation_productDetail"
+            app:destination="@id/navigation_productDetail" />
     </fragment>
 
     <fragment
@@ -61,5 +64,14 @@
         <action
             android:id="@+id/action_navigation_createProduct_to_navigation_carta"
             app:destination="@id/navigation_carta" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_productDetail"
+        android:name="com.example.saturnalia_clients.ui.fragments.productdetail.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_product_detail" >
+        <argument
+            android:name="product"
+            app:argType="com.example.saturnalia_clients.ui.model.Product" />
     </fragment>
 </navigation>

@@ -58,6 +58,7 @@ class CartaFragment : Fragment() {
     }
 
     private fun onProducItemClicked(product_: Product) {
+        findNavController().navigate(CartaFragmentDirections.actionNavigationCartaToNavigationProductDetail(product_))
     }
 
     private fun goToCreateProduct(){
