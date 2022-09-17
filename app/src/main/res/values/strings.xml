@@ -30,4 +30,7 @@
     <string name="string_add">Añadir</string>
     <string name="string_loginButton">Iniciar sesión</string>
     <string name="string_titleCreateProduct">Crear producto</string>
+
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cacelar</string>
 </resources>

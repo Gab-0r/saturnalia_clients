@@ -9,6 +9,7 @@ import com.example.saturnalia_clients.ui.data.ProductRepository
 import com.example.saturnalia_clients.ui.data.ResourceRemote
 import com.example.saturnalia_clients.ui.model.Product
 import com.google.firebase.firestore.ktx.toObject
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CartaViewModel : ViewModel() {
@@ -20,11 +21,15 @@ class CartaViewModel : ViewModel() {
     private val _productsList: MutableLiveData<ArrayList<Product>> = MutableLiveData()
     val productsList: LiveData<ArrayList<Product>> = _productsList
 
+    private var _deleteProductSuccess: MutableLiveData<String?> = MutableLiveData()
+    val deleteProductSuccess: LiveData<String?> = _deleteProductSuccess
+
     private val _msg: MutableLiveData<String?> = MutableLiveData()
     val msg: LiveData<String?> = _msg
 
     fun loadProducts() {
         viewModelScope.launch {
+            productList.clear()
             var result = productRepository.loadProducts()
             result.let { resourceRemote ->
                 when(resourceRemote){
@@ -45,6 +50,13 @@ class CartaViewModel : ViewModel() {
                 }
             }
 
+        }
+    }
+
+    fun deletItem(product_: Product) {
+        viewModelScope.launch(Dispatchers.IO){
+            productRepository.deleteProduct(product_)
+            _deleteProductSuccess.postValue("Producto eliminado")
         }
     }
 }

@@ -18,7 +18,7 @@ class ProductRepository {
 
     suspend fun createProduct(product: Product): ResourceRemote<String?> {
         return try {
-            val path = auth.uid?.let { db.collection("discos").document(it).collection("Products")}
+            val path = auth.uid?.let { db.collection("discos").document(it).collection("Products") }
             val documentProduct = path?.document()
             product.id = documentProduct?.id
             documentProduct?.id?.let { path.document(it).set(product).await() }
@@ -26,7 +26,7 @@ class ProductRepository {
         } catch (e: FirebaseFirestoreException) {
             Log.d("CreateProduct", e.localizedMessage)
             ResourceRemote.error(message = e.localizedMessage)
-        } catch (e: FirebaseFirestoreException){
+        } catch (e: FirebaseFirestoreException) {
             Log.d("CreateProduct", e.localizedMessage)
             ResourceRemote.error(message = e.localizedMessage)
         }
@@ -34,14 +34,21 @@ class ProductRepository {
 
     suspend fun loadProducts(): ResourceRemote<QuerySnapshot> {
         return try {
-            val docRef = auth.uid?.let { db.collection("discos").document(it).collection("Products") }
+            val docRef =
+                auth.uid?.let { db.collection("discos").document(it).collection("Products") }
             val result = docRef?.get()?.await()
             ResourceRemote.success(data = result)
-        }catch (e: FirebaseFirestoreException){
+        } catch (e: FirebaseFirestoreException) {
             ResourceRemote.error(message = e.localizedMessage)
-        }catch (e:FirebaseNetworkException){
+        } catch (e: FirebaseNetworkException) {
             ResourceRemote.error(message = e.localizedMessage)
         }
     }
 
+    fun deleteProduct(product_: Product): Any? {
+        return auth.uid?.let {
+           db.collection("discos").document(it).collection("Products")
+                .document(product_.id.toString()).delete()
+        }
+    }
 }

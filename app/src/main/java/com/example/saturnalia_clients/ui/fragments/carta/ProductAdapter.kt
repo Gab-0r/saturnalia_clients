@@ -9,9 +9,10 @@ import com.example.saturnalia_clients.databinding.CardViewProductItemBinding
 import com.example.saturnalia_clients.ui.model.Product
 import com.squareup.picasso.Picasso
 
-class ProductAdapter(
+class ProductAdapter (
     private val productList : ArrayList<Product>,
-    private val onItemClicked : (Product) -> Unit
+    private val onItemClicked : (Product) -> Unit,
+    private val onLongItemClicked : (Product) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder> () {
 
     //Asignar el XML que se va a pintar
@@ -25,6 +26,9 @@ class ProductAdapter(
         val product = productList[position]
         holder.bind(product)
         holder.itemView.setOnClickListener{onItemClicked(productList[position])}
+        holder.itemView.setOnLongClickListener { onLongItemClicked(productList[position])
+            true
+        }
     }
 
     override fun getItemCount(): Int = productList.size

@@ -1,5 +1,6 @@
 package com.example.saturnalia_clients.ui.fragments.carta
 
+import android.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentCartaBinding
-import com.example.saturnalia_clients.databinding.FragmentCreateProductBinding
 import com.example.saturnalia_clients.ui.model.Product
 
 class CartaFragment : Fragment() {
@@ -40,7 +40,15 @@ class CartaFragment : Fragment() {
             productAdapter.appendItems(list)
         }
 
-        productAdapter = ProductAdapter(productList, onItemClicked = {onProducItemClicked(it)})
+        cartaViewModel.deleteProductSuccess.observe(viewLifecycleOwner){
+            cartaViewModel.loadProducts()
+            showMsg(it)
+        }
+
+        productAdapter = ProductAdapter(productList,
+            onItemClicked = {onProducItemClicked(it)},
+            onLongItemClicked = {onItemLongClicked(it)}
+            )
 
         cartaBinding.productsRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@CartaFragment.requireContext())
@@ -55,6 +63,22 @@ class CartaFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun onItemLongClicked(product_: Product) {
+        val alertDialog: AlertDialog? = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(String.format("¿Desea eliminar %s de la lista de productos?", product_.productName))
+                setPositiveButton(R.string.accept){ dialog, id ->
+                    cartaViewModel.deletItem(product_)
+                }
+                setNegativeButton(R.string.cancel){ dialog, id ->
+                }
+            }
+            builder.create()
+        }
+        alertDialog?.show()
     }
 
     private fun onProducItemClicked(product_: Product) {
