@@ -10,7 +10,11 @@
         android:name="com.example.saturnalia_clients.ui.fragments.profile.ProfileFragment"
         android:label="@string/string_profilemenu"
         tools:layout="@layout/fragment_profile" />
-
+    <fragment
+        android:id="@+id/navigation_events"
+        android:name="com.example.saturnalia_clients.ui.fragments.eventos.EventosFragment"
+        android:label="fragment_eventos"
+        tools:layout="@layout/fragment_eventos" />
     <fragment
         android:id="@+id/navigation_carta"
         android:name="com.example.saturnalia_clients.ui.fragments.carta.CartaFragment"
@@ -74,4 +78,5 @@
             android:name="product"
             app:argType="com.example.saturnalia_clients.ui.model.Product" />
     </fragment>
+
 </navigation>

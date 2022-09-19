@@ -35,6 +35,7 @@ class LoginViewModel : ViewModel() {
                             var msg = result.message
 
                         }
+                        else -> {}
                     }
                 }
 
