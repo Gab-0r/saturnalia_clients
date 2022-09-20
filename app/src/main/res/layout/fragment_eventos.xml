@@ -9,28 +9,44 @@
 
     <TextView
         android:id="@+id/title_events"
-        android:layout_width="93dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="141dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/string_eventos"
-        android:textSize="20sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/events_recyclerView"
+        android:layout_width="375dp"
+        android:layout_height="494dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_events"
+        app:layout_constraintVertical_bias="0.098"
+        tools:listitem="@layout/card_view_event_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addEvent_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="298dp"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="624dp"
         android:layout_marginEnd="58dp"
         android:backgroundTint="@color/pink"
         android:clickable="true"
         android:src="@drawable/ic_add_"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
