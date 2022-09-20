@@ -5,6 +5,8 @@
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundBlue"
+    android:backgroundTint="@color/backgroundBlue"
     tools:context=".ui.fragments.eventos.EventosFragment">
 
     <TextView
@@ -14,7 +16,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/string_eventos"
-        android:textColor="@color/black"
+        android:textColor="@color/pink"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

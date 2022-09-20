@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundBlue"
     tools:context=".ui.fragments.createproducts.CreateProductFragment">
 
     <TextView
@@ -15,7 +16,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="177dp"
         android:text="@string/createproduct_title"
-        android:textColor="@color/black"
+        android:textColor="@color/pink"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +28,6 @@
         android:layout_width="229dp"
         android:layout_height="191dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/ic_carta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createProduct_textTitle"

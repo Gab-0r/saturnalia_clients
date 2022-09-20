@@ -5,16 +5,18 @@
     android:id="@+id/carta_constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundBlue"
     tools:context=".ui.fragments.carta.CartaFragment">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="83dp"
-        android:layout_height="38dp"
+        android:layout_width="107dp"
+        android:layout_height="39dp"
         android:layout_marginTop="32dp"
         android:text="Carta"
-        android:textColor="@color/black"
+        android:textColor="@color/pink"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
