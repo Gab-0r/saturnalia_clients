@@ -7,26 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.saturnalia_clients.R
+import com.example.saturnalia_clients.databinding.FragmentEventosBinding
 
 class EventosFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = EventosFragment()
-    }
+    private lateinit var eventosBinding: FragmentEventosBinding
+    private lateinit var eventosViewModel: EventosViewModel
 
-    private lateinit var viewModel: EventosViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_eventos, container, false)
-    }
+    ): View {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EventosViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        eventosBinding = FragmentEventosBinding.inflate(inflater, container, false)
+        eventosViewModel = ViewModelProvider(this)[EventosViewModel::class.java]
 
+        val view = eventosBinding.root
+
+
+        return view
+
+    }
 }
