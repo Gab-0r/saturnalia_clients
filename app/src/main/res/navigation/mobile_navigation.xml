@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_login">
+    app:startDestination="@id/navigation_eventDetail">
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -90,6 +90,14 @@
         <action
             android:id="@+id/action_navigation_createEvent_to_navigation_events"
             app:destination="@id/navigation_events" />
+        <action
+            android:id="@+id/action_navigation_createEvent_to_eventDetailFragment"
+            app:destination="@id/navigation_eventDetail" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_eventDetail"
+        android:name="com.example.saturnalia_clients.ui.fragments.eventdetail.EventDetailFragment"
+        android:label="fragment_event_detail"
+        tools:layout="@layout/fragment_event_detail" />
 
 </navigation>
