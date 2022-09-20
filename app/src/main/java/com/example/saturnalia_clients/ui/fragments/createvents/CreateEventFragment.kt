@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.saturnalia_clients.databinding.FragmentCreateEventBinding
 import com.google.android.material.timepicker.TimeFormat
 import java.text.SimpleDateFormat
@@ -29,6 +31,14 @@ class CreateEventFragment : Fragment() {
         createEventViewModel = ViewModelProvider(this)[CreateEventViewModel::class.java]
 
         val view = createEventBinding.root
+
+        createEventViewModel.msg.observe(viewLifecycleOwner){
+            showMsg(it)
+        }
+
+        createEventViewModel.createEventSuccess.observe(viewLifecycleOwner){
+            goToEvents()
+        }
 
         val dateSetListener = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
@@ -72,9 +82,22 @@ class CreateEventFragment : Fragment() {
                 ).show()
             }
 
+            createEventButton.setOnClickListener {
+                createEventViewModel.checkFields(textInputEventName.text.toString(),
+                        textInputEventDesc.text.toString(), eventDate, eventTime, inputTextEventCover.text.toString()
+                    )
+            }
 
         }
 
         return view
+    }
+
+    private fun goToEvents() {
+        findNavController().navigate(CreateEventFragmentDirections.actionNavigationCreateEventToNavigationEvents())
+    }
+
+    private fun showMsg(msg: String?) {
+        Toast.makeText(requireActivity(), msg, Toast.LENGTH_LONG).show()
     }
 }
