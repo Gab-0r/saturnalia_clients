@@ -6,13 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentEventDetailBinding
+import com.squareup.picasso.Picasso
 
 class EventDetailFragment : Fragment() {
 
     private lateinit var eventDetailBinding: FragmentEventDetailBinding
     private lateinit var eventDetailViewModel: EventDetailViewModel
+
+    private val args: EventDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +27,17 @@ class EventDetailFragment : Fragment() {
 
         val view = eventDetailBinding.root
 
+        val event = args.event
+
+        with(eventDetailBinding){
+            eventNameDetail.text = event.name
+            eventDescDetail.text = event.description
+            eventDateDetail.text = event.date
+            eventTimeDetail.text = event.time
+            eventCoverDetail.text = event.cover
+            if(event.urlPhoto != null)
+                Picasso.get().load(event.urlPhoto).into(eventImageDetail)
+        }
 
         return view
     }

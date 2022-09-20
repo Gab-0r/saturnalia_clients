@@ -69,7 +69,7 @@ class EventosFragment : Fragment() {
     }
 
     private fun onEventItemClicked(it: Event) {
-
+        findNavController().navigate(EventosFragmentDirections.actionNavigationEventsToNavigationEventDetail(it))
     }
 
     private fun showMsg(msg: String?) {

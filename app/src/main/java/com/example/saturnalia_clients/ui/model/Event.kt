@@ -1,5 +1,7 @@
 package com.example.saturnalia_clients.ui.model
 
+import java.io.Serializable
+
 
 data class Event(
     var id: String? = null,
@@ -9,4 +11,4 @@ data class Event(
     var time: String? = null,
     var cover: String? = null,
     var urlPhoto: String? = null
-)
+) : Serializable
