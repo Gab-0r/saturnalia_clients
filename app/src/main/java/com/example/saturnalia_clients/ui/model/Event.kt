@@ -7,5 +7,6 @@ data class Event(
     var description: String? = null,
     var date: String? = null,
     var time: String? = null,
-    var cover: String? = null
+    var cover: String? = null,
+    var urlPhoto: String? = null
 )
