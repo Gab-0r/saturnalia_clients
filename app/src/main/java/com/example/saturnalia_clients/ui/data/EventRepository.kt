@@ -43,5 +43,12 @@ class EventRepository {
         }
     }
 
+    suspend fun deleteEvent(event: Event) : Any? {
+        return auth.uid?.let {
+            db.collection("discos").document(it).collection("Events")
+                .document(event.id.toString()).delete().await()
+        }
+    }
+
 
 }

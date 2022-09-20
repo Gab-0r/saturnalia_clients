@@ -45,10 +45,10 @@ class ProductRepository {
         }
     }
 
-    fun deleteProduct(product_: Product): Any? {
+    suspend fun deleteProduct(product_: Product): Any? {
         return auth.uid?.let {
            db.collection("discos").document(it).collection("Products")
-                .document(product_.id.toString()).delete()
+                .document(product_.id.toString()).delete().await()
         }
     }
 }

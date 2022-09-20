@@ -26,6 +26,9 @@ class EventAdapter(
         val event = eventList[position]
         holder.bind(event)
         holder.itemView.setOnClickListener { onItemClicked(eventList[position]) }
+        holder.itemView.setOnLongClickListener { onLongItemClicked(eventList[position])
+            true
+        }
     }
 
     override fun getItemCount(): Int = eventList.size

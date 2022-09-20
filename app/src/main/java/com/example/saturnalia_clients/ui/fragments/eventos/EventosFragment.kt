@@ -1,5 +1,6 @@
 package com.example.saturnalia_clients.ui.fragments.eventos
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.saturnalia_clients.R
@@ -44,6 +46,10 @@ class EventosFragment : Fragment() {
             eventAdapter.appendItems(list)
         }
 
+        eventosViewModel.deleteEventSuccess.observe(viewLifecycleOwner){
+            showMsg(it)
+        }
+
         eventAdapter = EventAdapter(eventList,
             onItemClicked = {onEventItemClicked(it)},
             onLongItemClicked = {onItemLongClicked(it)}
@@ -64,8 +70,20 @@ class EventosFragment : Fragment() {
         return view
     }
 
-    private fun onItemLongClicked(it: Event) {
-
+    private fun onItemLongClicked(event: Event) {
+        val alertDialog: AlertDialog? = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(String.format("¿Desea eliminar al evento %s ?", event.name))
+                setPositiveButton(R.string.accept){dialog, id->
+                    eventosViewModel.deleteItem(event)
+                }
+                setNegativeButton(R.string.cancel){dialog, id->
+                }
+            }
+            builder.create()
+        }
+        alertDialog?.show()
     }
 
     private fun onEventItemClicked(it: Event) {
@@ -78,5 +96,10 @@ class EventosFragment : Fragment() {
 
     fun goToCreateEvent(){
         findNavController().navigate(EventosFragmentDirections.actionNavigationEventsToNavigationCreateEvent())
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar!!.hide()
     }
 }

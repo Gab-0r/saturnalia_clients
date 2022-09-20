@@ -8,6 +8,7 @@ import com.example.saturnalia_clients.ui.data.EventRepository
 import com.example.saturnalia_clients.ui.data.ResourceRemote
 import com.example.saturnalia_clients.ui.model.Event
 import com.google.firebase.firestore.ktx.toObject
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class EventosViewModel : ViewModel() {
@@ -18,6 +19,9 @@ class EventosViewModel : ViewModel() {
 
     private val _eventsList: MutableLiveData<ArrayList<Event>> = MutableLiveData()
     val eventsList: LiveData<ArrayList<Event>> = _eventsList
+
+    private val _deleteEventSuccess: MutableLiveData<String?> = MutableLiveData()
+    val deleteEventSuccess: LiveData<String?> = _deleteEventSuccess
 
     private val _msg: MutableLiveData<String?> = MutableLiveData()
     val msg: LiveData<String?> = _msg
@@ -44,6 +48,13 @@ class EventosViewModel : ViewModel() {
                     }
                 }
             }
+        }
+    }
+
+    fun deleteItem(event: Event) {
+        viewModelScope.launch(Dispatchers.IO) {
+            eventRepository.deleteEvent(event)
+            _deleteEventSuccess.postValue("Evento eliminado")
         }
     }
 }
