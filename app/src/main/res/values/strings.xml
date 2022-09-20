@@ -34,4 +34,12 @@
     <string name="accept">Aceptar</string>
     <string name="cancel">Cacelar</string>
     <string name="string_eventos">Eventos</string>
+    <string name="string_createEvent">Crear evento</string>
+    <string name="string_eventName">Nombre del evento</string>
+    <string name="string_eventDescription">Descripción del evento</string>
+    <string name="string_eventDate">Fecha:</string>
+    <string name="string_eventdateformat">DD/MM/YYYY</string>
+    <string name="string_eventTime">Hora:</string>
+    <string name="string_timeFormat">HH/MM</string>
+    <string name="string_eventCover">Cover</string>
 </resources>

@@ -14,7 +14,11 @@
         android:id="@+id/navigation_events"
         android:name="com.example.saturnalia_clients.ui.fragments.eventos.EventosFragment"
         android:label="fragment_eventos"
-        tools:layout="@layout/fragment_eventos" />
+        tools:layout="@layout/fragment_eventos" >
+        <action
+            android:id="@+id/action_navigation_events_to_navigation_createEvent"
+            app:destination="@id/navigation_createEvent" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_carta"
         android:name="com.example.saturnalia_clients.ui.fragments.carta.CartaFragment"
@@ -77,6 +81,15 @@
         <argument
             android:name="product"
             app:argType="com.example.saturnalia_clients.ui.model.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_createEvent"
+        android:name="com.example.saturnalia_clients.ui.fragments.createvents.CreateEventFragment"
+        android:label="fragment_create_event"
+        tools:layout="@layout/fragment_create_event" >
+        <action
+            android:id="@+id/action_navigation_createEvent_to_navigation_events"
+            app:destination="@id/navigation_events" />
     </fragment>
 
 </navigation>
