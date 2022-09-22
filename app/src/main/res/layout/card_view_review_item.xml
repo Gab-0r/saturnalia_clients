@@ -49,8 +49,8 @@
             <TextView
                 android:id="@+id/textView_reviewText"
                 android:layout_width="296dp"
-                android:layout_height="91dp"
-                android:layout_marginTop="12dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/string_reviewDesc"
                 android:textColor="@color/pink"
