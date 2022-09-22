@@ -7,26 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.saturnalia_clients.R
+import com.example.saturnalia_clients.databinding.FragmentReviewBinding
 
 class ReviewFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ReviewFragment()
-    }
-
-    private lateinit var viewModel: ReviewViewModel
+    private lateinit var reviewBinding: FragmentReviewBinding
+    private lateinit var reviewViewModel: ReviewViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_review, container, false)
-    }
+    ): View {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ReviewViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        reviewBinding = FragmentReviewBinding.inflate(inflater, container, false)
+        reviewViewModel = ViewModelProvider(this)[ReviewViewModel::class.java]
 
+        val view = reviewBinding.root
+
+
+
+        return view
+
+    }
 }

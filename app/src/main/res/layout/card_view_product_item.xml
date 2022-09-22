@@ -10,7 +10,7 @@
         android:id="@+id/product_cardView"
         android:layout_width="393dp"
         android:layout_height="114dp"
-        android:backgroundTint="#027B9C"
+        android:backgroundTint="@color/backgroundCard"
         app:cardCornerRadius="4dp"
         app:cardElevation="8dp">
 

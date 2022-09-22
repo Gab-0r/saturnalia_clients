@@ -12,5 +12,6 @@
     <color name='backgroundText'>#778D91</color>
     <color name='pink'>#F85F6A</color>
     <color name='pinkText'>#ED7E7F</color>
+    <color name='backgroundCard'>#027B9C</color>
 
 </resources>

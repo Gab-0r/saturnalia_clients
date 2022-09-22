@@ -42,4 +42,8 @@
     <string name="string_eventTime">Hora:</string>
     <string name="string_timeFormat">HH/MM</string>
     <string name="string_eventCover">Cover</string>
+    <string name="string_reviewTitle">Reseñas</string>
+    <string name="string_reviewAuthor">Nombre del autor</string>
+    <string name="string_puntosReview">Calificación</string>
+    <string name="string_reviewDesc">Reseña</string>
 </resources>
