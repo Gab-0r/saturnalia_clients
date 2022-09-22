@@ -56,7 +56,7 @@ class CartaViewModel : ViewModel() {
     fun deletItem(product_: Product) {
         viewModelScope.launch(Dispatchers.IO){
             productRepository.deleteProduct(product_)
-            _deleteProductSuccess.postValue("Producto eliminado")
         }
+        loadProducts()
     }
 }

@@ -47,7 +47,6 @@ class EventosFragment : Fragment() {
         }
 
         eventosViewModel.deleteEventSuccess.observe(viewLifecycleOwner){
-            showMsg(it)
         }
 
         eventAdapter = EventAdapter(eventList,

@@ -54,7 +54,7 @@ class EventosViewModel : ViewModel() {
     fun deleteItem(event: Event) {
         viewModelScope.launch(Dispatchers.IO) {
             eventRepository.deleteEvent(event)
-            _deleteEventSuccess.postValue("Evento eliminado")
         }
+        loadEvents()
     }
 }

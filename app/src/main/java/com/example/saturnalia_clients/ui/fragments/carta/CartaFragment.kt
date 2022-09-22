@@ -40,11 +40,6 @@ class CartaFragment : Fragment() {
             productAdapter.appendItems(list)
         }
 
-        cartaViewModel.deleteProductSuccess.observe(viewLifecycleOwner){
-            cartaViewModel.loadProducts()
-            showMsg(it)
-        }
-
         productAdapter = ProductAdapter(productList,
             onItemClicked = {onProducItemClicked(it)},
             onLongItemClicked = {onItemLongClicked(it)}
