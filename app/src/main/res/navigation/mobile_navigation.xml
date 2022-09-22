@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_login">
+    app:startDestination="@id/navigation_editEvents">
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_navigation_events_to_navigation_eventDetail"
             app:destination="@id/navigation_eventDetail" />
+        <action
+            android:id="@+id/action_navigation_events_to_navigation_editEvents"
+            app:destination="@id/navigation_editEvents" />
     </fragment>
     <fragment
         android:id="@+id/navigation_carta"
@@ -103,5 +106,10 @@
             android:name="event"
             app:argType="com.example.saturnalia_clients.ui.model.Event" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_editEvents"
+        android:name="com.example.saturnalia_clients.ui.fragments.editevents.EditEventsFragment"
+        android:label="fragment_edit_events"
+        tools:layout="@layout/fragment_edit_events" />
 
 </navigation>
