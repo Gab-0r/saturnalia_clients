@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentEventDetailBinding
+import com.example.saturnalia_clients.ui.model.Event
 import com.squareup.picasso.Picasso
 
 class EventDetailFragment : Fragment() {
@@ -37,8 +39,15 @@ class EventDetailFragment : Fragment() {
             eventCoverDetail.text = event.cover
             if(event.urlPhoto != null)
                 Picasso.get().load(event.urlPhoto).into(eventImageDetail)
+
+
+            buttonEventEdit.setOnClickListener { goToEdit(event) }
         }
 
         return view
+    }
+
+    private fun goToEdit(event: Event) {
+        findNavController().navigate(EventDetailFragmentDirections.actionNavigationEventDetailToNavigationEditEvents(event))
     }
 }

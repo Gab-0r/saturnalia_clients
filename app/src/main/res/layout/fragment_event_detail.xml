@@ -11,8 +11,8 @@
 
     <TextView
         android:id="@+id/eventName_detail"
-        android:layout_width="366dp"
-        android:layout_height="101dp"
+        android:layout_width="364dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/string_eventName"
@@ -35,13 +35,14 @@
 
     <TextView
         android:id="@+id/eventDesc_detail"
-        android:layout_width="wrap_content"
+        android:layout_width="266dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:padding="8dp"
         android:text="@string/string_eventDescription"
+        android:textAlignment="center"
         android:textColor="@color/pink"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -124,5 +125,31 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/eventCover_label"
         app:layout_constraintTop_toBottomOf="@+id/eventDate_detail" />
+
+    <Button
+        android:id="@+id/button_eventEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/String_edit"
+        android:textColor="@color/backgroundBlue"
+        android:textColorHint="@color/backgroundBlue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventCover_label" />
+
+    <Button
+        android:id="@+id/button_eventDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/string_eventDelete"
+        android:textColor="@color/backgroundBlue"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_eventEdit"
+        app:layout_constraintTop_toBottomOf="@+id/eventCover_detail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,4 +46,7 @@
     <string name="string_reviewAuthor">Nombre del autor</string>
     <string name="string_puntosReview">Calificación</string>
     <string name="string_reviewDesc">Reseña</string>
+    <string name="string_editEvent">Editar evento</string>
+    <string name="String_edit">Editar</string>
+    <string name="string_eventDelete">Eliminar</string>
 </resources>
