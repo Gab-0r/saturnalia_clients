@@ -84,6 +84,9 @@
         <argument
             android:name="product"
             app:argType="com.example.saturnalia_clients.ui.model.Product" />
+        <action
+            android:id="@+id/action_navigation_productDetail_to_navigation_editProducts"
+            app:destination="@id/navigation_editProducts" />
     </fragment>
     <fragment
         android:id="@+id/navigation_createEvent"
@@ -117,6 +120,15 @@
         <action
             android:id="@+id/action_navigation_editEvents_to_navigation_events"
             app:destination="@id/navigation_events" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_editProducts"
+        android:name="com.example.saturnalia_clients.ui.fragments.editproducts.EditProductsFragment"
+        android:label="fragment_edit_products"
+        tools:layout="@layout/fragment_edit_products" >
+        <action
+            android:id="@+id/action_navigation_editProducts_to_navigation_carta"
+            app:destination="@id/navigation_carta" />
     </fragment>
 
 </navigation>

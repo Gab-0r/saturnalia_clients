@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentProductDetailBinding
@@ -33,8 +34,17 @@ class ProductDetailFragment : Fragment() {
             productDescDetail.text = product.productDescription
             if(product.urlPhoto != null)
                 Picasso.get().load(product.urlPhoto).into(productImgDetail)
+
+            editProductButton.setOnClickListener {
+                goToEditProduct()
+            }
+
         }
 
         return productDetailBinding.root
+    }
+
+    private fun goToEditProduct() {
+        findNavController().navigate(ProductDetailFragmentDirections.actionNavigationProductDetailToNavigationEditProducts())
     }
 }

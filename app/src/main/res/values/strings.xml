@@ -49,4 +49,5 @@
     <string name="string_editEvent">Editar evento</string>
     <string name="String_edit">Editar</string>
     <string name="string_eventDelete">Eliminar</string>
+    <string name="string_editProduct">Editar producto</string>
 </resources>
