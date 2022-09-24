@@ -111,12 +111,12 @@
         android:name="com.example.saturnalia_clients.ui.fragments.editevents.EditEventsFragment"
         android:label="fragment_edit_events"
         tools:layout="@layout/fragment_edit_events" >
-        <action
-            android:id="@+id/action_navigation_editEvents_to_navigation_eventDetail"
-            app:destination="@id/navigation_eventDetail" />
         <argument
             android:name="eventToEdit"
             app:argType="com.example.saturnalia_clients.ui.model.Event" />
+        <action
+            android:id="@+id/action_navigation_editEvents_to_navigation_events"
+            app:destination="@id/navigation_events" />
     </fragment>
 
 </navigation>

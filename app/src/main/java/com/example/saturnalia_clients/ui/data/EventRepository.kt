@@ -50,5 +50,25 @@ class EventRepository {
         }
     }
 
+    suspend fun editEvent(event: Event): ResourceRemote<String> {
+        //Crear un nuevo evento
+        return try {
+            auth.uid?.let {
+                db.collection("discos").document(it).collection("Events")
+                    .document(event.id.toString()).delete().await()
+            }
+            val path = auth.uid?.let { db.collection("discos").document(it).collection("Events") }
+            val documentEvent = path?.document(event.id.toString())
+            documentEvent?.id?.let { path.document(it).set(event).await() }
+            ResourceRemote.success(data = event.id)
+        }catch (e: FirebaseFirestoreException){
+            Log.d("CreateEvent", e.localizedMessage)
+            ResourceRemote.error(message = e.localizedMessage)
+        }catch (e: FirebaseNetworkException){
+            Log.d("CreateEvent", e.localizedMessage)
+            ResourceRemote.error(message = e.localizedMessage)
+        }
+    }
 
 }
+

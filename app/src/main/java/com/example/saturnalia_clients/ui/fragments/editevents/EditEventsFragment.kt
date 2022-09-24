@@ -10,9 +10,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentEditEventsBinding
+import com.example.saturnalia_clients.ui.model.Event
 import java.util.*
 
 class EditEventsFragment : Fragment() {
@@ -37,6 +40,14 @@ class EditEventsFragment : Fragment() {
         val view = editEventsBinding.root
 
         val event = args.eventToEdit
+
+        editEventsViewModel.editEventSuccess.observe(viewLifecycleOwner){
+            goToDetail(event)
+        }
+
+        editEventsViewModel.msg.observe(viewLifecycleOwner){
+            showMsg(it)
+        }
 
         val dateSetListener = DatePickerDialog.OnDateSetListener{ _, year, month, dayOfmonth ->
             calendar.set(Calendar.YEAR, year)
@@ -84,13 +95,26 @@ class EditEventsFragment : Fragment() {
                     timeSetListener,
                     event.time?.subSequence(0,1).toString().toInt(),
                     event.time?.subSequence(2,4).toString().toInt(),
-                    false,
+                    false
                 ).show()
+            }
+
+            editEventButton.setOnClickListener {
+                editEventsViewModel.checkFields(event.id.toString(), textInputEventEditName.text.toString(), textInputEventEditDesc.text.toString(),
+                    eventDate, eventTime, inputTextEventEditCover.text.toString())
             }
 
         }
 
         return view
 
+    }
+
+    private fun goToDetail(event: Event) {
+        findNavController().navigate(EditEventsFragmentDirections.actionNavigationEditEventsToNavigationEvents())
+    }
+
+    private fun showMsg(msg: String?){
+        Toast.makeText(requireActivity(), msg, Toast.LENGTH_LONG).show()
     }
 }
