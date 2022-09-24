@@ -129,6 +129,9 @@
         <action
             android:id="@+id/action_navigation_editProducts_to_navigation_carta"
             app:destination="@id/navigation_carta" />
+        <argument
+            android:name="productToEdit"
+            app:argType="com.example.saturnalia_clients.ui.model.Product" />
     </fragment>
 
 </navigation>

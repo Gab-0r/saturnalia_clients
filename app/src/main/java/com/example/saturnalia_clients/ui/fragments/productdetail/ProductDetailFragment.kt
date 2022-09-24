@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentProductDetailBinding
+import com.example.saturnalia_clients.ui.model.Product
 import com.squareup.picasso.Picasso
 
 class ProductDetailFragment : Fragment() {
@@ -36,7 +37,7 @@ class ProductDetailFragment : Fragment() {
                 Picasso.get().load(product.urlPhoto).into(productImgDetail)
 
             editProductButton.setOnClickListener {
-                goToEditProduct()
+                goToEditProduct(product)
             }
 
         }
@@ -44,7 +45,7 @@ class ProductDetailFragment : Fragment() {
         return productDetailBinding.root
     }
 
-    private fun goToEditProduct() {
-        findNavController().navigate(ProductDetailFragmentDirections.actionNavigationProductDetailToNavigationEditProducts())
+    private fun goToEditProduct(product: Product) {
+        findNavController().navigate(ProductDetailFragmentDirections.actionNavigationProductDetailToNavigationEditProducts(product))
     }
 }
