@@ -33,7 +33,7 @@ class CreateProductFragment : Fragment() {
         }
 
         with(createProductBinding){
-            buttonAddProduct.setOnClickListener {
+            buttonEditProduct.setOnClickListener {
                 createProductViewModel.checkFields(editTextCreateProductName.text.toString(),
                     editTextProductType.text.toString(), editTextProductPrice.text.toString().toInt(),
                     editTextDescProduct.text.toString()

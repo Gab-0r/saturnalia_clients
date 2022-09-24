@@ -51,4 +51,23 @@ class ProductRepository {
                 .document(product_.id.toString()).delete().await()
         }
     }
+
+    suspend fun editProduct(product: Product): ResourceRemote<String> {
+        return try {
+            auth.uid?.let {
+                db.collection("discos").document(it).collection("Products")
+                    .document(product.id.toString()).delete().await()
+            }
+            val path = auth.uid?.let { db.collection("discos").document(it).collection("Products") }
+            val documentProduct = path?.document(product.id.toString())
+            documentProduct?.id?.let { path.document(it).set(product).await() }
+            ResourceRemote.success(data = product.id)
+        } catch (e: FirebaseFirestoreException) {
+            Log.d("CreateProduct", e.localizedMessage)
+            ResourceRemote.error(message = e.localizedMessage)
+        } catch (e: FirebaseFirestoreException) {
+            Log.d("CreateProduct", e.localizedMessage)
+            ResourceRemote.error(message = e.localizedMessage)
+        }
+    }
 }

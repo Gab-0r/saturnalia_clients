@@ -42,7 +42,7 @@ class EditEventsFragment : Fragment() {
         val event = args.eventToEdit
 
         editEventsViewModel.editEventSuccess.observe(viewLifecycleOwner){
-            goToDetail(event)
+            goToDetail()
         }
 
         editEventsViewModel.msg.observe(viewLifecycleOwner){
@@ -110,7 +110,7 @@ class EditEventsFragment : Fragment() {
 
     }
 
-    private fun goToDetail(event: Event) {
+    private fun goToDetail() {
         findNavController().navigate(EditEventsFragmentDirections.actionNavigationEditEventsToNavigationEvents())
     }
 
