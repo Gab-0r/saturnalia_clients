@@ -1,5 +1,6 @@
 package com.example.saturnalia_clients.ui.fragments.productdetail
 
+import android.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -25,8 +26,14 @@ class ProductDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         productDetailBinding = FragmentProductDetailBinding.inflate(inflater, container, false)
+        productDetailViewModel = ViewModelProvider(this)[ProductDetailViewModel::class.java]
 
         val product = args.product
+
+       productDetailViewModel.deleteProductSuccess.observe(viewLifecycleOwner){
+           goToProducts()
+       }
+
 
         with(productDetailBinding){
             productNameDetail.text = product.productName
@@ -39,10 +46,31 @@ class ProductDetailFragment : Fragment() {
             editProductButton.setOnClickListener {
                 goToEditProduct(product)
             }
+            deleteProductButton.setOnClickListener { deleteProduct(product) }
 
         }
 
         return productDetailBinding.root
+    }
+
+    private fun goToProducts() {
+        findNavController().navigate(ProductDetailFragmentDirections.actionNavigationProductDetailToNavigationCarta())
+    }
+
+    private fun deleteProduct(product: Product) {
+        val alertDialog: AlertDialog? = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(String.format("¿Desea eliminar al evento %s ?", product.productName))
+                setPositiveButton(R.string.accept){dialog, id->
+                    productDetailViewModel.deleteItem(product)
+                }
+                setNegativeButton(R.string.cancel){dialog, id->
+                }
+            }
+            builder.create()
+        }
+        alertDialog?.show()
     }
 
     private fun goToEditProduct(product: Product) {

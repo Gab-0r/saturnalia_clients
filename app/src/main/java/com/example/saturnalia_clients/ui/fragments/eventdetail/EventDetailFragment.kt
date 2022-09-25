@@ -1,5 +1,6 @@
 package com.example.saturnalia_clients.ui.fragments.eventdetail
 
+import android.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -31,6 +32,10 @@ class EventDetailFragment : Fragment() {
 
         val event = args.event
 
+        eventDetailViewModel.deleteEventSuccess.observe(viewLifecycleOwner){
+            goToEvents()
+        }
+
         with(eventDetailBinding){
             eventNameDetail.text = event.name
             eventDescDetail.text = event.description
@@ -42,9 +47,30 @@ class EventDetailFragment : Fragment() {
 
 
             buttonEventEdit.setOnClickListener { goToEdit(event) }
+            buttonEventDelete.setOnClickListener { delteEvent(event) }
         }
 
         return view
+    }
+
+    private fun delteEvent(event: Event) {
+        val alertDialog: AlertDialog? = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setMessage(String.format("¿Desea eliminar al evento %s ?", event.name))
+                setPositiveButton(R.string.accept){dialog, id->
+                    eventDetailViewModel.deleteItem(event)
+                }
+                setNegativeButton(R.string.cancel){dialog, id->
+                }
+            }
+            builder.create()
+        }
+        alertDialog?.show()
+    }
+
+    private fun goToEvents() {
+        findNavController().navigate(EventDetailFragmentDirections.actionNavigationEventDetailToNavigationEvents())
     }
 
     private fun goToEdit(event: Event) {

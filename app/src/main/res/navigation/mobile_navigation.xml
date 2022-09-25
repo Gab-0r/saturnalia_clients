@@ -87,6 +87,9 @@
         <action
             android:id="@+id/action_navigation_productDetail_to_navigation_editProducts"
             app:destination="@id/navigation_editProducts" />
+        <action
+            android:id="@+id/action_navigation_productDetail_to_navigation_carta"
+            app:destination="@id/navigation_carta" />
     </fragment>
     <fragment
         android:id="@+id/navigation_createEvent"
@@ -108,6 +111,9 @@
         <action
             android:id="@+id/action_navigation_eventDetail_to_navigation_editEvents"
             app:destination="@id/navigation_editEvents" />
+        <action
+            android:id="@+id/action_navigation_eventDetail_to_navigation_events"
+            app:destination="@id/navigation_events" />
     </fragment>
     <fragment
         android:id="@+id/navigation_editEvents"
@@ -132,6 +138,9 @@
         <argument
             android:name="productToEdit"
             app:argType="com.example.saturnalia_clients.ui.model.Product" />
+        <action
+            android:id="@+id/action_navigation_editProducts_to_navigation_carta2"
+            app:destination="@id/navigation_carta" />
     </fragment>
 
 </navigation>
