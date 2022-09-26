@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentProfileBinding
+import com.example.saturnalia_clients.ui.model.Disco
 
 class ProfileFragment : Fragment() {
 
     private lateinit var profileBinding: FragmentProfileBinding
     private lateinit var profileViewModel: ProfileViewModel
+    private var disco: Disco = Disco()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +26,29 @@ class ProfileFragment : Fragment() {
 
         val view = profileBinding.root
 
+        profileViewModel.loadProfile()
+
+        profileViewModel.disco.observe(viewLifecycleOwner){
+            disco = it
+            drawProfile()
+        }
+
+        with(profileBinding){
+            productsButton.setOnClickListener { goToProducts() }
+            eventsButton.setOnClickListener { goToEvents() }
+        }
+
         return view
 
+    }
+
+    private fun drawProfile() {
+        with(profileBinding){
+            textViewProfileName.text = disco.name
+            aboutUsContent.text = disco.about
+            phoneNumberContent.text = disco.phone
+            contactEmailContent.text = disco.email
+            contactAdressContent.text = disco.address
+        }
     }
 }
