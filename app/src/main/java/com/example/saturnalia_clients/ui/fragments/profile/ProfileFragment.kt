@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.saturnalia_clients.R
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.databinding.FragmentProfileBinding
+import com.example.saturnalia_clients.ui.fragments.editprofile.EditProfileFragmentArgs
 import com.example.saturnalia_clients.ui.model.Disco
 
 class ProfileFragment : Fragment() {
@@ -15,6 +17,7 @@ class ProfileFragment : Fragment() {
     private lateinit var profileBinding: FragmentProfileBinding
     private lateinit var profileViewModel: ProfileViewModel
     private var disco: Disco = Disco()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +29,8 @@ class ProfileFragment : Fragment() {
 
         val view = profileBinding.root
 
+
+
         profileViewModel.loadProfile()
 
         profileViewModel.disco.observe(viewLifecycleOwner){
@@ -36,10 +41,24 @@ class ProfileFragment : Fragment() {
         with(profileBinding){
             productsButton.setOnClickListener { goToProducts() }
             eventsButton.setOnClickListener { goToEvents() }
+
+            editProfileButton.setOnClickListener { goToEdit(disco) }
         }
 
         return view
 
+    }
+
+    private fun goToEdit(disco: Disco) {
+        findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToNavigationEditProfile(disco))
+    }
+
+    private fun goToEvents() {
+        findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToNavigationEvents())
+    }
+
+    private fun goToProducts() {
+        findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToNavigationCarta())
     }
 
     private fun drawProfile() {

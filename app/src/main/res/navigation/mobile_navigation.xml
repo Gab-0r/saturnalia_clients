@@ -9,7 +9,17 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.saturnalia_clients.ui.fragments.profile.ProfileFragment"
         android:label="@string/string_profilemenu"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_events"
+            app:destination="@id/navigation_events" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_carta"
+            app:destination="@id/navigation_carta" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_editProfile"
+            app:destination="@id/navigation_editProfile" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_events"
         android:name="com.example.saturnalia_clients.ui.fragments.eventos.EventosFragment"
@@ -141,6 +151,15 @@
         <action
             android:id="@+id/action_navigation_editProducts_to_navigation_carta2"
             app:destination="@id/navigation_carta" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_editProfile"
+        android:name="com.example.saturnalia_clients.ui.fragments.editprofile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <argument
+            android:name="discoToEdit"
+            app:argType="com.example.saturnalia_clients.ui.model.Disco" />
     </fragment>
 
 </navigation>

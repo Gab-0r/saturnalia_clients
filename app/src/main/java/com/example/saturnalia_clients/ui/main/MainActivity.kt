@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
         if (destination.id == R.id.navigation_login || destination.id == R.id.navigation_signUp || destination.id == R.id.navigation_createProduct
             || destination.id == R.id.navigation_createEvent || destination.id == R.id.navigation_eventDetail || destination.id == R.id.navigation_productDetail
-            || destination.id == R.id.navigation_editEvents || destination.id == R.id.navigation_editProducts)
+            || destination.id == R.id.navigation_editEvents || destination.id == R.id.navigation_editProducts || destination.id == R.id.navigation_editProfile)
                 navView.visibility = View.GONE
             else
                 navView.visibility = View.VISIBLE
