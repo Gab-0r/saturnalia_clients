@@ -39,8 +39,9 @@ class SignUpViewModel : ViewModel() {
                         result.let {resourceRemote->
                             when(resourceRemote){
                                 is ResourceRemote.success -> {
+                                    var user = User(uid = result.data, name = name_)
                                     disco = Disco(uid = result.data, name = name_, email = email_)
-                                    createUser(disco)
+                                    createUser(user)
                                     createField(disco)
                                     //_registerSuccess.postValue(result.data)
                                 }
@@ -64,9 +65,9 @@ class SignUpViewModel : ViewModel() {
 
     }
 
-    private fun createField(disco: Disco) {
+    private fun createField(disco_: Disco) {
         viewModelScope.launch{
-            val result = userRepository.createField(disco)
+            val result = userRepository.createField(disco_)
             result.let { resourceRemote ->
                 when(resourceRemote){
                     is ResourceRemote.success ->{
@@ -85,9 +86,9 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-    fun createUser(disco_: Disco) {
+    fun createUser(user_: User) {
         viewModelScope.launch{
-            val result = userRepository.createUser(disco_)
+            val result = userRepository.createUser(user_)
             result.let { resourceRemote ->
                 when(resourceRemote){
                     is ResourceRemote.success ->{

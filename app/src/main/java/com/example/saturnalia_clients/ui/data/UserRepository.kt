@@ -43,10 +43,10 @@ class UserRepository {
             ResourceRemote.error(message = e.localizedMessage)
         }
     }
-    suspend fun createUser(disco_: Disco): ResourceRemote<String>{
+    suspend fun createUser(user: User): ResourceRemote<String>{
         return try {
-            disco_.uid?.let { db.collection("discos").document(it).set(disco_).await() }
-            ResourceRemote.success(data = disco_.uid)
+            user.uid?.let { db.collection("discos").document(it).set(user).await() }
+            ResourceRemote.success(data = user.uid)
         } catch (e: FirebaseFirestoreException) {
             Log.d("Register", e.localizedMessage)
             ResourceRemote.error(message = e.localizedMessage)
