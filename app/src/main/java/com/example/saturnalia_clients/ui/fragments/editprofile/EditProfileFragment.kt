@@ -43,7 +43,7 @@ class EditProfileFragment : Fragment() {
             editTextAddress.setText(disco.address)
 
             confirmEditProfile.setOnClickListener {
-                editProfileViewModel.checkFields(disco.id.toString(), editTextName.text.toString(), editTextAboutUs.text.toString(), editTextPhone.text.toString(),
+                editProfileViewModel.checkFields(disco.uid.toString(), editTextName.text.toString(), editTextAboutUs.text.toString(), editTextPhone.text.toString(),
                     editTextEmail.text.toString(), editTextAddress.text.toString()
                 )
             }

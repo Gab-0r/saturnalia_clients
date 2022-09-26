@@ -26,7 +26,7 @@ class EditProfileViewModel : ViewModel() {
             _msg.value = "Todos los campos deben ser llenados"
         else
             viewModelScope.launch(Dispatchers.IO){
-                val disco = Disco(id = id_, name = name_, about = about_, phone = phone_, email = email_, address = addres_)
+                val disco = Disco(uid = id_, name = name_, about = about_, phone = phone_, email = email_, address = addres_)
                 val result = discoRepository.editDisco(disco)
                 result.let { resourceRemote ->
                     when(resourceRemote){

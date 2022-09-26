@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.saturnalia_clients.ui.data.ResourceRemote
 import com.example.saturnalia_clients.ui.data.UserRepository
+import com.example.saturnalia_clients.ui.model.Disco
 import com.example.saturnalia_clients.ui.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 class SignUpViewModel : ViewModel() {
 
     private val userRepository = UserRepository()///Repositorio (Fuente de datos  para la aplicación)
-    private lateinit var user: User
+    private lateinit var disco: Disco
 
     private val _registerSuccess: MutableLiveData<String?> = MutableLiveData()
     val registerSuccess: LiveData<String?> = _registerSuccess
@@ -38,8 +39,9 @@ class SignUpViewModel : ViewModel() {
                         result.let {resourceRemote->
                             when(resourceRemote){
                                 is ResourceRemote.success -> {
-                                    user = User(result.data, name_, email_)
-                                    createUser(user)
+                                    disco = Disco(uid = result.data, name = name_, email = email_)
+                                    createUser(disco)
+                                    createField(disco)
                                     //_registerSuccess.postValue(result.data)
                                 }
                                 is ResourceRemote.error -> {
@@ -62,9 +64,30 @@ class SignUpViewModel : ViewModel() {
 
     }
 
-    fun createUser(user_: User) {
+    private fun createField(disco: Disco) {
         viewModelScope.launch{
-            val result = userRepository.createUser(user_)
+            val result = userRepository.createField(disco)
+            result.let { resourceRemote ->
+                when(resourceRemote){
+                    is ResourceRemote.success ->{
+                        _registerSuccess.postValue(result.data)
+                        _errorMsg.postValue("Registro exitoso")
+                    }
+                    is ResourceRemote.error ->{
+                        var msg = result.message
+                        _errorMsg.postValue(msg)
+                    }
+                    else ->{
+                        //don't use
+                    }
+                }
+            }
+        }
+    }
+
+    fun createUser(disco_: Disco) {
+        viewModelScope.launch{
+            val result = userRepository.createUser(disco_)
             result.let { resourceRemote ->
                 when(resourceRemote){
                     is ResourceRemote.success ->{

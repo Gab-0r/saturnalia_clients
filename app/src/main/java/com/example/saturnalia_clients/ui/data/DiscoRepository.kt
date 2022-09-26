@@ -32,12 +32,12 @@ class DiscoRepository {
         return try {
             auth.uid?.let {
                 db.collection("discos").document(it).collection("Info")
-                    .document(disco.id.toString()).delete().await()
+                    .document(disco.uid.toString()).delete().await()
             }
             val path = auth.uid?.let { db.collection("discos").document(it).collection("Info") }
-            val documentDisco = path?.document(disco.id.toString())
+            val documentDisco = path?.document(disco.uid.toString())
             documentDisco?.id?.let { path.document(it).set(disco).await() }
-            ResourceRemote.success(data = disco.id)
+            ResourceRemote.success(data = disco.uid)
         }catch (e: FirebaseFirestoreException){
             ResourceRemote.error(message = e.localizedMessage)
         }catch (e: FirebaseNetworkException){
