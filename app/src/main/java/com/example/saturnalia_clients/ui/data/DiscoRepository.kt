@@ -1,5 +1,6 @@
 package com.example.saturnalia_clients.ui.data
 
+import com.example.saturnalia_clients.ui.model.Disco
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -8,6 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.rpc.context.AttributeContext
 import kotlinx.coroutines.tasks.await
 
 class DiscoRepository {
@@ -22,6 +24,23 @@ class DiscoRepository {
         } catch (e: FirebaseFirestoreException){
             ResourceRemote.error(message = e.localizedMessage)
         } catch (e: FirebaseNetworkException){
+            ResourceRemote.error(message = e.localizedMessage)
+        }
+    }
+
+    suspend fun editDisco(disco: Disco): ResourceRemote<String> {
+        return try {
+            auth.uid?.let {
+                db.collection("discos").document(it).collection("Info")
+                    .document(disco.id.toString()).delete().await()
+            }
+            val path = auth.uid?.let { db.collection("discos").document(it).collection("Info") }
+            val documentDisco = path?.document(disco.id.toString())
+            documentDisco?.id?.let { path.document(it).set(disco).await() }
+            ResourceRemote.success(data = disco.id)
+        }catch (e: FirebaseFirestoreException){
+            ResourceRemote.error(message = e.localizedMessage)
+        }catch (e: FirebaseNetworkException){
             ResourceRemote.error(message = e.localizedMessage)
         }
     }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavArgs
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentEditProfileBinding
@@ -30,17 +31,31 @@ class EditProfileFragment : Fragment() {
 
         val disco = args.discoToEdit
 
+        editProfileViewModel.editProfileSuccess.observe(viewLifecycleOwner){
+            goToProfile()
+        }
+
         with(editProfileBinding){
             editTextName.setText(disco.name)
             editTextAboutUs.setText(disco.about)
             editTextPhone.setText(disco.phone)
             editTextEmail.setText(disco.email)
             editTextAddress.setText(disco.address)
+
+            confirmEditProfile.setOnClickListener {
+                editProfileViewModel.checkFields(disco.id.toString(), editTextName.text.toString(), editTextAboutUs.text.toString(), editTextPhone.text.toString(),
+                    editTextEmail.text.toString(), editTextAddress.text.toString()
+                )
+            }
         }
 
 
         return view
 
+    }
+
+    private fun goToProfile() {
+        findNavController().navigate(EditProfileFragmentDirections.actionNavigationEditProfileToNavigationProfile())
     }
 
 }

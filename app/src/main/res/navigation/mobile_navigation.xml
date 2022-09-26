@@ -160,6 +160,9 @@
         <argument
             android:name="discoToEdit"
             app:argType="com.example.saturnalia_clients.ui.model.Disco" />
+        <action
+            android:id="@+id/action_navigation_editProfile_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
     </fragment>
 
 </navigation>
