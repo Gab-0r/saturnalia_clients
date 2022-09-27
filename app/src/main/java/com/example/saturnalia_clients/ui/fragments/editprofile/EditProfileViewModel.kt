@@ -40,7 +40,6 @@ class EditProfileViewModel : ViewModel() {
                     when(resourceRemote){
                         is ResourceRemote.success -> {
                             _editProfileSuccess.postValue(result.data)
-                            editFields(disco)
                             _msg.postValue("Cambios guardados")
                         }
                         is ResourceRemote.error -> {
@@ -52,26 +51,5 @@ class EditProfileViewModel : ViewModel() {
                     }
                 }
             }
-    }
-
-    private fun editFields(disco: Disco) {
-        viewModelScope.launch{
-            val result = userRepository.createField(disco)
-            result.let { resourceRemote ->
-                when(resourceRemote){
-                    is ResourceRemote.success ->{
-                        _registerSuccess.postValue(result.data)
-                        _errorMsg.postValue("Registro exitoso")
-                    }
-                    is ResourceRemote.error ->{
-                        var msg = result.message
-                        _errorMsg.postValue(msg)
-                    }
-                    else ->{
-                        //don't use
-                    }
-                }
-            }
-        }
     }
 }
