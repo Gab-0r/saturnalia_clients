@@ -26,23 +26,23 @@
                 android:layout_marginEnd="100dp"
                 android:text="@string/string_reviewAuthor"
                 android:textColor="@color/pink"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView_reviewPunct"
-                android:layout_width="218dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
+            <RatingBar
+                android:id="@+id/ratingBarReview"
+                android:layout_width="234dp"
+                android:layout_height="44dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="100dp"
-                android:text="@string/string_puntosReview"
-                android:textColor="@color/pink"
-                android:textStyle="bold"
+                android:isIndicator="true"
+                android:progressTint="@color/pink"
+                android:scrollbarSize="4dp"
+                android:secondaryProgressTint="@color/pink"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.303"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_authName" />
 
@@ -54,10 +54,13 @@
                 android:layout_marginBottom="8dp"
                 android:text="@string/string_reviewDesc"
                 android:textColor="@color/pink"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.474"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_reviewPunct" />
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarReview"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

@@ -38,7 +38,7 @@ class ReviewAdapter (
         fun bind(review_ : Review){
             with(binding){
                 textViewAuthName.text = review_.authName
-                textViewReviewPunct.text = review_.score
+                ratingBarReview.rating = review_.score.toString().toFloat()
                 textViewReviewText.text = review_.desc
             }
         }
