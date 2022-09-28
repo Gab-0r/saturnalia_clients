@@ -61,4 +61,5 @@
     <string name="string_nextEvents">Proximos eventos</string>
     <string name="string_editProfile">Editar perfil</string>
     <string name="string_save">Guardar</string>
+    <string name="string_averageRating">Calificación promedio</string>
 </resources>

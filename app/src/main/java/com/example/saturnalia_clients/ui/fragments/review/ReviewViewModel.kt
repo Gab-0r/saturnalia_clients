@@ -14,9 +14,13 @@ class ReviewViewModel : ViewModel() {
 
     private var reviewRepository = ReviewRepository()
     private var reviewList: ArrayList<Review> = ArrayList()
+    private var ratingList: ArrayList<Float> = ArrayList()
 
     private val _reviewsList: MutableLiveData<ArrayList<Review>> = MutableLiveData()
     val reviewsList: LiveData<ArrayList<Review>> = _reviewsList
+
+    private val _averageRating: MutableLiveData<Float> = MutableLiveData()
+    val averageRating: LiveData<Float> = _averageRating
 
     private val _msg: MutableLiveData<String?> = MutableLiveData()
     val msg: LiveData<String?> = _msg
@@ -31,8 +35,14 @@ class ReviewViewModel : ViewModel() {
                         result?.data?.documents?.forEach { document ->
                             val review = document.toObject<Review>()
                             review?.let { reviewList.add(review) }
+                            review?.let { ratingList.add(review.score.toString().toFloat()) }
                         }
                         _reviewsList.postValue(reviewList)
+                        var sum = 0f
+                        for (i in ratingList.indices){
+                            sum += ratingList.get(i)
+                        }
+                        _averageRating.postValue(sum/ratingList.size)
                     }
                     is ResourceRemote.error -> {
                         val msg = result.message

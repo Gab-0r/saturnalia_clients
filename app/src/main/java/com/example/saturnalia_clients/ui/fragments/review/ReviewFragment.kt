@@ -36,6 +36,12 @@ class ReviewFragment : Fragment() {
             showMsg(it)
         }
 
+        reviewViewModel.averageRating.observe(viewLifecycleOwner){
+            with(reviewBinding){
+                ratingBarAverage.rating = it
+            }
+        }
+
         reviewViewModel.reviewsList.observe(viewLifecycleOwner){list ->
             reviewAdapater.appendItems(list)
         }
