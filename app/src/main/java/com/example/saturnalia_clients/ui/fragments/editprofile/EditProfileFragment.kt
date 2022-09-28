@@ -44,7 +44,7 @@ class EditProfileFragment : Fragment() {
 
             confirmEditProfile.setOnClickListener {
                 editProfileViewModel.checkFields(disco.uid.toString(), editTextName.text.toString(), editTextAboutUs.text.toString(), editTextPhone.text.toString(),
-                    editTextEmail.text.toString(), editTextAddress.text.toString()
+                    editTextEmail.text.toString(), editTextAddress.text.toString(), disco.rating.toString().toFloat()
                 )
             }
         }
