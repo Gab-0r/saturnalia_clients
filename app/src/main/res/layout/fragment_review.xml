@@ -34,7 +34,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBarAverage"
+        app:layout_constraintTop_toBottomOf="@+id/textView_ratingTitle"
         tools:listitem="@layout/card_view_review_item" />
 
     <TextView
@@ -57,6 +57,7 @@
         android:layout_marginTop="8dp"
         android:progressTint="@color/pink"
         android:secondaryProgressTint="@color/pink"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toEndOf="@+id/textView_ratingTitle"

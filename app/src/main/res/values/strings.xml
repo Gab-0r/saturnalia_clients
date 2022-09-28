@@ -64,4 +64,5 @@
     <string name="string_averageRating">Calificación promedio</string>
     <string name="string_address_">Dirección</string>
     <string name="string_phone">Teléfono</string>
+    <string name="nullRating">No se tienen calificaciones</string>
 </resources>
