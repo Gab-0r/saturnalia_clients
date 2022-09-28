@@ -62,4 +62,6 @@
     <string name="string_editProfile">Editar perfil</string>
     <string name="string_save">Guardar</string>
     <string name="string_averageRating">Calificación promedio</string>
+    <string name="string_address_">Dirección</string>
+    <string name="string_phone">Teléfono</string>
 </resources>
