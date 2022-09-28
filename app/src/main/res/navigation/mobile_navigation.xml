@@ -19,6 +19,12 @@
         <action
             android:id="@+id/action_navigation_profile_to_navigation_editProfile"
             app:destination="@id/navigation_editProfile" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_events2"
+            app:destination="@id/navigation_events" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_eventDetail"
+            app:destination="@id/navigation_eventDetail" />
     </fragment>
     <fragment
         android:id="@+id/navigation_events"

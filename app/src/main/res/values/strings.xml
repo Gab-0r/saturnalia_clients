@@ -66,4 +66,5 @@
     <string name="string_phone">Teléfono</string>
     <string name="nullRating">No se tienen calificaciones</string>
     <string name="string_logOut">Cerrar sesión</string>
+    <string name="string_viewMore">Ver todos</string>
 </resources>

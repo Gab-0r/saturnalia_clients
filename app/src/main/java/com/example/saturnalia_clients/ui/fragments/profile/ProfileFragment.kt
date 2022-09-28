@@ -8,14 +8,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import com.example.saturnalia_clients.databinding.FragmentProfileBinding
 import com.example.saturnalia_clients.ui.fragments.editprofile.EditProfileFragmentArgs
+import com.example.saturnalia_clients.ui.fragments.eventos.EventAdapter
 import com.example.saturnalia_clients.ui.model.Disco
+import com.example.saturnalia_clients.ui.model.Event
 
 class ProfileFragment : Fragment() {
 
     private lateinit var profileBinding: FragmentProfileBinding
     private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var eventAdapter: EventAdapter
+    private var eventList: ArrayList<Event> = ArrayList()
+
     private var disco: Disco = Disco()
 
 
@@ -29,7 +37,7 @@ class ProfileFragment : Fragment() {
 
         val view = profileBinding.root
 
-
+        profileViewModel.loadEvents()
 
         profileViewModel.loadProfile()
 
@@ -38,15 +46,38 @@ class ProfileFragment : Fragment() {
             drawProfile()
         }
 
+        profileViewModel.eventsList.observe(viewLifecycleOwner){list ->
+            eventAdapter.appendItems(list)
+        }
+
+        eventAdapter = EventAdapter(eventList,
+                onItemClicked = {onEventItemClicked(it)},
+                onLongItemClicked = {onItemLongClicked(it)}
+        )
+
+        profileBinding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@ProfileFragment.requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = eventAdapter
+            setHasFixedSize(false)
+            val snapHelper: SnapHelper = LinearSnapHelper()
+            snapHelper.attachToRecyclerView(this)
+        }
+
         with(profileBinding){
             productsButton.setOnClickListener { goToProducts() }
-            eventsButton.setOnClickListener { goToEvents() }
-
             editProfileButton.setOnClickListener { goToEdit(disco) }
+            verTodosView.setOnClickListener { goToEvents() }
         }
 
         return view
 
+    }
+
+    private fun onItemLongClicked(it: Event) {
+    }
+
+    private fun onEventItemClicked(it: Event) {
+        findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToNavigationEventDetail(it))
     }
 
     private fun goToEdit(disco: Disco) {
