@@ -16,6 +16,7 @@ import com.example.saturnalia_clients.ui.fragments.editprofile.EditProfileFragme
 import com.example.saturnalia_clients.ui.fragments.eventos.EventAdapter
 import com.example.saturnalia_clients.ui.model.Disco
 import com.example.saturnalia_clients.ui.model.Event
+import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
 
@@ -99,6 +100,8 @@ class ProfileFragment : Fragment() {
             phoneNumberContent.text = disco.phone
             contactEmailContent.text = disco.email
             contactAdressContent.text = disco.address
+            if (disco.urlPhoto != null)
+                Picasso.get().load(disco.urlPhoto).into(imageView)
         }
     }
 }

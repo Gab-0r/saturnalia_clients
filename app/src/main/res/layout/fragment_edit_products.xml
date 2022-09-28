@@ -90,13 +90,14 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEditProductPrice">
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAlcoholEdit">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_descProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/string_product_description" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -113,4 +114,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEditProductDesc" />
+
+
+    <CheckBox
+        android:id="@+id/checkBoxAlcoholEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/string_alcoholLabel"
+        android:textColor="@color/pink"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEditProductPrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,7 @@ class ProductDetailFragment : Fragment() {
             productTypeDetail.text = product.productType
             productPriceDetail.text = product.productPrice.toString()
             productDescDetail.text = product.productDescription
+            checkBoxAlcoholDetail.isChecked = product.containsAlcohol!!
             if(product.urlPhoto != null)
                 Picasso.get().load(product.urlPhoto).into(productImgDetail)
 

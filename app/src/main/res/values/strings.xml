@@ -53,12 +53,12 @@
     <string name="string_discoName">Nombre de la discoteca</string>
     <string name="string_about">Acerca de nosotros</string>
     <string name="string_aboutContent">Descripción breve del sitio</string>
-    <string name="string_contacto">Contactanos</string>
-    <string name="string_num">Telefono:</string>
+    <string name="string_contacto">Contáctanos</string>
+    <string name="string_num">Teléfono:</string>
     <string name="string_email">E-mail:</string>
     <string name="string_address">Dirección:</string>
     <string name="String_ourProducts">Nuestros productos</string>
-    <string name="string_nextEvents">Proximos eventos</string>
+    <string name="string_nextEvents">Próximos eventos</string>
     <string name="string_editProfile">Editar información</string>
     <string name="string_save">Guardar</string>
     <string name="string_averageRating">Calificación promedio</string>
@@ -67,4 +67,5 @@
     <string name="nullRating">No se tienen calificaciones</string>
     <string name="string_logOut">Cerrar sesión</string>
     <string name="string_viewMore">Ver todos</string>
+    <string name="string_alcoholLabel">Contiene alcohol</string>
 </resources>

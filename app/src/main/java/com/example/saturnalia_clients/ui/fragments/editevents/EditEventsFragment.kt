@@ -16,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentEditEventsBinding
 import com.example.saturnalia_clients.ui.model.Event
+import com.squareup.picasso.Picasso
 import java.util.*
 
 class EditEventsFragment : Fragment() {
@@ -78,6 +79,8 @@ class EditEventsFragment : Fragment() {
             eventEditTimeButton.text = event.time
             eventDate = event.date
             eventTime = event.time
+            if(event.urlPhoto != null)
+                Picasso.get().load(event.urlPhoto).into(imageEditEvent)
 
             eventEditDateButton.setOnClickListener {
                 DatePickerDialog(

@@ -38,6 +38,7 @@
         android:layout_width="300dp"
         android:layout_height="56dp"
         android:layout_marginTop="16dp"
+        android:textColorHint="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_createProduct">
@@ -46,7 +47,10 @@
             android:id="@+id/editText_createProductName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/string_product_name" />
+            android:backgroundTint="@color/backgroundCard"
+            android:hint="@string/string_product_name"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,6 +59,7 @@
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
+        android:textColorHint="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_createProductName">
@@ -63,7 +68,9 @@
             android:id="@+id/editText_productType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/string_product_type" />
+            android:backgroundTint="@color/backgroundCard"
+            android:hint="@string/string_product_type"
+            android:textColorHint="@color/pink" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -71,6 +78,7 @@
         android:layout_width="299dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
+        android:textColorHint="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
@@ -79,6 +87,7 @@
             android:id="@+id/editText_productPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundCard"
             android:hint="@string/string_product_price"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -88,6 +97,7 @@
         android:layout_width="300dp"
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
+        android:textColorHint="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
@@ -96,6 +106,7 @@
             android:id="@+id/editText_descProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundCard"
             android:hint="@string/string_product_description" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,6 +122,25 @@
         android:textColor="@color/backgroundBlue"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAlcohol" />
+
+    <CheckBox
+        android:id="@+id/checkBoxAlcohol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="219dp"
+        android:checked="false"
+        android:text="@string/string_alcoholLabel"
+        android:textColor="@color/pink"
+        android:textColorHighlight="@color/pink"
+        android:textColorLink="@color/pink"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,12 +29,12 @@ class EditProfileViewModel : ViewModel() {
     val erroMsg: LiveData<String?> = _errorMsg //Mensaje de error que se le pasa a la vista
 
 
-    fun checkFields(id_: String, name_: String, about_: String, phone_: String, email_: String, addres_: String) {
+    fun checkFields(id_: String, name_: String, about_: String, phone_: String, email_: String, addres_: String, urlPhoto_: String) {
         if(name_.isEmpty() || about_.isEmpty() || phone_.isEmpty() || email_.isEmpty() || addres_.isEmpty())
             _msg.value = "Todos los campos deben ser llenados"
         else
             viewModelScope.launch(Dispatchers.IO){
-                val disco = Disco(uid = id_, name = name_, about = about_, phone = phone_, email = email_, address = addres_)
+                val disco = Disco(uid = id_, name = name_, about = about_, phone = phone_, email = email_, address = addres_, urlPhoto = urlPhoto_)
                 val result = discoRepository.editDisco(disco)
                 result.let { resourceRemote ->
                     when(resourceRemote){

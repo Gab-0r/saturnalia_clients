@@ -8,5 +8,6 @@ data class Product(
     var productType: String? = null,
     var productPrice: Int? = null,
     var productDescription: String? = null,
-    var urlPhoto: String? = null
+    var urlPhoto: String? = null,
+    var containsAlcohol: Boolean? = false
 ) : Serializable

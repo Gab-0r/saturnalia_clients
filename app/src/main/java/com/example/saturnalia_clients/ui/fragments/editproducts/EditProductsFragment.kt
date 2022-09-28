@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.databinding.FragmentEditProductsBinding
+import com.squareup.picasso.Picasso
 
 class EditProductsFragment : Fragment() {
 
@@ -43,10 +44,16 @@ class EditProductsFragment : Fragment() {
             editTextEditProductType.setText(product.productType)
             editTextEditProductPrice.setText(product.productPrice.toString())
             editTextDescProduct.setText(product.productDescription)
+            checkBoxAlcoholEdit.isChecked = product.containsAlcohol!!
+
+            if (product.urlPhoto != null)
+                Picasso.get().load(product.urlPhoto).into(imageViewEditProduct)
 
             buttonEditProduct.setOnClickListener {
                 editProductViewModel.checkFields(product.id.toString(), editTextEditProductName.text.toString(),
-                editTextEditProductType.text.toString(), editTextEditProductPrice.text.toString(), editTextDescProduct.text.toString())
+                editTextEditProductType.text.toString(), editTextEditProductPrice.text.toString(), editTextDescProduct.text.toString(),
+                checkBoxAlcoholEdit.isChecked)
+
             }
 
         }

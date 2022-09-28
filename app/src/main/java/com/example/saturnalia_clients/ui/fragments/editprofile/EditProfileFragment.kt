@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.saturnalia_clients.R
 import com.example.saturnalia_clients.databinding.FragmentEditProfileBinding
+import com.squareup.picasso.Picasso
 
 class EditProfileFragment : Fragment() {
 
@@ -41,9 +42,12 @@ class EditProfileFragment : Fragment() {
             editTextEmail.setText(disco.email)
             editTextAddress.setText(disco.address)
 
+            if (disco.urlPhoto != null)
+                Picasso.get().load(disco.urlPhoto).into(imageView)
+
             confirmEditProfile.setOnClickListener {
                 editProfileViewModel.checkFields(disco.uid.toString(), disco.name.toString(), editTextAboutUs.text.toString(), editTextPhone.text.toString(),
-                    editTextEmail.text.toString(), editTextAddress.text.toString()
+                    editTextEmail.text.toString(), editTextAddress.text.toString(), disco.urlPhoto.toString()
                 )
             }
         }

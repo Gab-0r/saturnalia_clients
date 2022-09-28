@@ -36,7 +36,7 @@ class CreateProductFragment : Fragment() {
             buttonEditProduct.setOnClickListener {
                 createProductViewModel.checkFields(editTextCreateProductName.text.toString(),
                     editTextProductType.text.toString(), editTextProductPrice.text.toString().toInt(),
-                    editTextDescProduct.text.toString()
+                    editTextDescProduct.text.toString(), checkBoxAlcohol.isChecked
                 )
             }
         }

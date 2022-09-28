@@ -48,7 +48,7 @@
         android:id="@+id/productTypeDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/string_product_type"
         android:textColor="@color/pink"
         android:textSize="18sp"
@@ -61,7 +61,7 @@
         android:id="@+id/productDescDetail"
         android:layout_width="272dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/string_product_description"
         android:textAlignment="center"
         android:textColor="@color/pink"
@@ -69,7 +69,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productTypeDetail" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAlcoholDetail" />
 
     <Button
         android:id="@+id/editProductButton"
@@ -96,4 +96,17 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productDescDetail" />
+
+    <CheckBox
+        android:id="@+id/checkBoxAlcoholDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="false"
+        android:text="@string/string_alcoholLabel"
+        android:textColor="@color/pink"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productTypeDetail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

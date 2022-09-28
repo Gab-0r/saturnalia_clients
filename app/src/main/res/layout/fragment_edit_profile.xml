@@ -109,6 +109,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:background="@color/backgroundBlue"
+        android:backgroundTint="@color/backgroundBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_profileAboutUs">
@@ -117,6 +119,8 @@
             android:id="@+id/editText_aboutUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/backgroundCard"
+            android:textColor="@color/white"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,6 +141,8 @@
             android:id="@+id/editTextPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/backgroundCard"
+            android:textColor="@color/white"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -155,6 +161,8 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundCard"
+            android:textColor="@color/white"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -173,6 +181,8 @@
             android:id="@+id/editTextAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/backgroundCard"
+            android:textColor="@color/white"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -183,6 +193,7 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/pink"
         android:text="@string/string_save"
+        android:textColor="@color/backgroundBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout13" />

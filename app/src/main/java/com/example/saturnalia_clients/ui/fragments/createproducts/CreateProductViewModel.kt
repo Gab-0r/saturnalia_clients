@@ -20,12 +20,12 @@ class CreateProductViewModel : ViewModel() {
     private val _msg: MutableLiveData<String?> = MutableLiveData()
     val msg: LiveData<String?> = _msg
 
-    fun checkFields(name_: String, type_: String, price_: Int, desc_: String) {
+    fun checkFields(name_: String, type_: String, price_: Int, desc_: String, alcohol_: Boolean) {
         if(name_.isEmpty() || type_.isEmpty() || desc_.isEmpty())
             _msg.value = "Todos los campos deben ser llenados"
         else
             viewModelScope.launch(Dispatchers.IO){
-                val product = Product(productName = name_, productType =  type_, productPrice =  price_, productDescription =  desc_)
+                val product = Product(productName = name_, productType =  type_, productPrice =  price_, productDescription =  desc_, containsAlcohol = alcohol_)
                 val result = productRepository.createProduct(product)
                 result.let { resourceRemote ->
                     when(resourceRemote){
