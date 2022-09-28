@@ -5,18 +5,33 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.config.ConfigFragment">
+    android:background="@color/backgroundBlue"
+    android:backgroundTint="@color/backgroundBlue"
+    tools:context=".ui.fragments.config.ConfigFragment" >
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="295dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="308dp"
-        android:text="Configuracion"
-        android:textSize="34sp"
+        android:id="@+id/textView_settingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/string_configmenu"
+        android:textColor="@color/pink"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="199dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/string_logOut"
+        android:textColor="@color/backgroundBlue"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_settingsTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
