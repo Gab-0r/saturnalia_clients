@@ -36,14 +36,13 @@ class EditProfileFragment : Fragment() {
         }
 
         with(editProfileBinding){
-            editTextName.setText(disco.name)
             editTextAboutUs.setText(disco.about)
             editTextPhone.setText(disco.phone)
             editTextEmail.setText(disco.email)
             editTextAddress.setText(disco.address)
 
             confirmEditProfile.setOnClickListener {
-                editProfileViewModel.checkFields(disco.uid.toString(), editTextName.text.toString(), editTextAboutUs.text.toString(), editTextPhone.text.toString(),
+                editProfileViewModel.checkFields(disco.uid.toString(), disco.name.toString(), editTextAboutUs.text.toString(), editTextPhone.text.toString(),
                     editTextEmail.text.toString(), editTextAddress.text.toString(), disco.rating.toString().toFloat()
                 )
             }
