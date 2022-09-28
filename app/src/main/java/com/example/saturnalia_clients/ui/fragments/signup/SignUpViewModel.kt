@@ -22,8 +22,8 @@ class SignUpViewModel : ViewModel() {
     private val _errorMsg: MutableLiveData<String?> = MutableLiveData()//Mensaje de error
     val erroMsg: LiveData<String?> = _errorMsg //Mensaje de error que se le pasa a la vista
 
-    fun checkFields(name_: String, email_: String, pass_: String, confPass_: String) {
-        if(name_.isEmpty() || email_.isEmpty() || pass_.isEmpty() || confPass_.isEmpty())
+    fun checkFields(name_: String, email_: String, address_: String, phone_: String, pass_: String, confPass_: String) {
+        if(name_.isEmpty() || email_.isEmpty() || pass_.isEmpty() || confPass_.isEmpty() || address_.isEmpty() || phone_.isEmpty())
             _errorMsg.value = "Todos los campos deben ser llenados"
         else
             if(pass_ != confPass_)
@@ -40,7 +40,7 @@ class SignUpViewModel : ViewModel() {
                             when(resourceRemote){
                                 is ResourceRemote.success -> {
                                     var user = User(uid = result.data, name = name_)
-                                    disco = Disco(uid = result.data, name = name_, email = email_)
+                                    disco = Disco(uid = result.data, name = name_, email = email_, address = address_, phone = phone_)
                                     createUser(user)
                                     createField(disco)
                                     //_registerSuccess.postValue(result.data)

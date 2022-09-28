@@ -37,9 +37,8 @@ class SignUpFragment : Fragment() {
 
         with(signUpBinding){
             registerButton.setOnClickListener {
-                signUpviewModel.checkFields(nameTextInputLayout.text.toString(), emailTextEmailAddress.text.toString(),
-                    passwordText.text.toString(),
-                    confirmPassword.text.toString()
+                signUpviewModel.checkFields(nameDisco.text.toString(), emailTextEmailAddress.text.toString(), discoAddress.text.toString(),
+                    discoPhone.text.toString(), passwordText.text.toString(), confirmPassword.text.toString()
                 )
             }
             buttonLogin.setOnClickListener {

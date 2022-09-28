@@ -44,11 +44,11 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email_nameDisco"
+            app:layout_constraintTop_toBottomOf="@+id/nameDisco"
             tools:ignore="TextContrastCheck" />
 
         <EditText
-            android:id="@+id/email_nameDisco"
+            android:id="@+id/nameDisco"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -86,11 +86,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_Phone"
+            app:layout_constraintTop_toBottomOf="@+id/disco_Phone"
             tools:ignore="TextContrastCheck" />
 
         <EditText
-            android:id="@+id/password_Address"
+            android:id="@+id/disco_Address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -99,7 +99,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/string_address_"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:minHeight="48dp"
             android:textColor="@color/pink"
             android:textColorHint="@color/pink"
@@ -110,7 +110,7 @@
             tools:ignore="TextContrastCheck" />
 
         <EditText
-            android:id="@+id/password_Phone"
+            android:id="@+id/disco_Phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -126,7 +126,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_Address"
+            app:layout_constraintTop_toBottomOf="@+id/disco_Address"
             tools:ignore="TextContrastCheck" />
 
         <EditText
